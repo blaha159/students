@@ -1,0 +1,45 @@
+body .toasted-container.top-center {
+  top: 0;
+}
+
+body .toasted.toasted-primary {
+  font-family: 'Roboto', sans-serif;
+
+  &.success {
+    background: $green;
+  }
+  &.error {
+    background: $red;
+  }
+}
+
+tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, .05);
+}
+
+:disabled {
+  cursor: not-allowed;
+}
+
+.text-brand {
+  color: $primary;
+}
+
+body .v-data-table tbody tr.v-data-table__expanded__content {
+  box-shadow: inset 1px 2px 2px -1px rgba(50, 50, 50, 0.25),
+}
+
+.theme--light.v-btn.green {
+  color: $white;
+}
+
+@media (min-width: 1904px) {
+  .container {
+    max-width: 1185px;
+  }
+}
+@media (min-width: 1921px) {
+  .container {
+    max-width: 1785px;
+  }
+}
