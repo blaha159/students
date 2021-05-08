@@ -80,6 +80,128 @@ export class PagedResultDto<T> implements IPagedResult<T> {
 // customer definition
 // empty
 
+export class PredmetService {
+  /**
+   *
+   */
+  static getAll(options: IRequestOptions = {}): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/getAll';
+
+      const configs: IRequestConfig = getConfigs('get', 'application/json', url, options);
+
+      let data = null;
+
+      configs.data = data;
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
+   *
+   */
+  static predmet(
+    params: {
+      /**  */
+      id: number;
+    } = {} as any,
+    options: IRequestOptions = {}
+  ): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/api/Predmet/predmet/{id}';
+      url = url.replace('{id}', params['id'] + '');
+
+      const configs: IRequestConfig = getConfigs('get', 'application/json', url, options);
+
+      let data = null;
+
+      configs.data = data;
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
+   *
+   */
+  static predmet1(
+    params: {
+      /**  */
+      id: number;
+      /** requestBody */
+      body?: Predmet;
+    } = {} as any,
+    options: IRequestOptions = {}
+  ): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/api/Predmet/predmet/{id}';
+      url = url.replace('{id}', params['id'] + '');
+
+      const configs: IRequestConfig = getConfigs('put', 'application/json', url, options);
+
+      let data = params.body;
+
+      configs.data = data;
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
+   *
+   */
+  static predmet2(
+    params: {
+      /**  */
+      id: number;
+    } = {} as any,
+    options: IRequestOptions = {}
+  ): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/api/Predmet/predmet/{id}';
+      url = url.replace('{id}', params['id'] + '');
+
+      const configs: IRequestConfig = getConfigs('delete', 'application/json', url, options);
+
+      let data = null;
+
+      configs.data = data;
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
+   *
+   */
+  static predmet3(
+    params: {
+      /** requestBody */
+      body?: Predmet;
+    } = {} as any,
+    options: IRequestOptions = {}
+  ): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/api/Predmet/predmet';
+
+      const configs: IRequestConfig = getConfigs('post', 'application/json', url, options);
+
+      let data = params.body;
+
+      configs.data = data;
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
+   *
+   */
+  static predmet4(options: IRequestOptions = {}): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/api/Predmet/predmet';
+
+      const configs: IRequestConfig = getConfigs('delete', 'application/json', url, options);
+
+      let data = null;
+
+      configs.data = data;
+      axios(configs, resolve, reject);
+    });
+  }
+}
+
 export class WeatherForecastService {
   /**
    *
@@ -95,6 +217,19 @@ export class WeatherForecastService {
       configs.data = data;
       axios(configs, resolve, reject);
     });
+  }
+}
+
+export class Predmet {
+  /**  */
+  'id'?: number;
+
+  /**  */
+  'nazev'?: string;
+
+  constructor(data: undefined | any = {}) {
+    this['id'] = data['id'];
+    this['nazev'] = data['nazev'];
   }
 }
 

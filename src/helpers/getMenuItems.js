@@ -18,6 +18,10 @@ function getStudentItems(vueInstance) {
           {
             title: vueInstance.$t('menu.students'),
             href: vueInstance.localePath({name: 'student'}),
+          },
+          {
+            title: vueInstance.$t('menu.predmets'),
+            href: vueInstance.localePath({name: 'predmet'}),
           },          
         ]
       },
