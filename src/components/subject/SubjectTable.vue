@@ -2,8 +2,8 @@
   <div>    
     <v-data-table
       :headers="tableHeaders"
-      :items="predmetList"
-      ref="predmetTable"
+      :items="subjectList"
+      ref="subjectTable"
     >      
       <template v-slot:item.id="{ item }">      
       </template>
@@ -16,22 +16,22 @@
 
   /**
    * List všech produktů aplikace
-   * @name PredmetTable
-   * @module components/predmets/PredmetTable
+   * @name SubjectTable
+   * @module components/subjects/SubjectTable
    * @vue-computed {Object} ...mapState - napamované potřebné stavy Vuexu
    * @vue-computed {Object[]} tableHeaders - nastavení sloupců tabulky
    * @vue-event {} ...mapActions - napamované potřebné akce Vuexu
    * @vue-event {} created - Vue Lifecycle hook - get listu produktů
    */
   export default {
-    name: 'PredmetTable',
+    name: 'SubjectTable',
     computed: {
       ...mapState({
-        predmetList: state => state.predmets.predmetList
+        subjectList: state => state.subjects.subjectList
       }),
       tableHeaders() {
         return [
-          {value: 'nazev', text: this.$t('predmetList.nazev')},
+          {value: 'nazev', text: this.$t('subjectList.name')},
           {value: 'id', text: ''},
         ]
       }
@@ -40,11 +40,11 @@
     }),
     methods: {
       ...mapActions({
-        getPredmetList: 'predmets/getPredmetList'
+        getSubjectList: 'subjects/getSubjectList'
       }),
     },
     created() {
-      this.getPredmetList();
+      this.getSubjectList();
     },
   }
 </script>

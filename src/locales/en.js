@@ -24,7 +24,8 @@ export default (context) => {
         title: 'Main Menu',  
         test: 'Test',
         weatherForecast: 'Weather Forecast', 
-        students: 'Students',        
+        students: 'Students', 
+        subjects: 'Subjects',       
       },   
       weatherForecastList: {
         date: "Date",
@@ -32,6 +33,10 @@ export default (context) => {
         temperatureF: "Temperature Fahrenheit",
         summary: "Summary",
         subtitle: 'Forecast for 5 days',
+      },
+      subjectList: {
+        name: "Name",
+        subtitle: 'Subject list',
       },
     })
   });

@@ -8,15 +8,15 @@ import { Predmet, PredmetService } from '~/service/studentsBack'
 //import IHash from '~/types/IHash.ts'
 
 export interface State {
-  predmetList: Predmet[]
+  subjectList: Predmet[]
 }
 
 export interface Actions {
-  getPredmetList: void
+  getSubjectList: void
 }
 
 export interface Mutations {
-  setPredmetList: Predmet[]
+  setSubjectList: Predmet[]
 }
 export interface Getters {
 }
@@ -26,7 +26,7 @@ export function state() {
   let state: State;
 
   state = {
-    predmetList: [],
+    subjectList: [],
   };
 
   return state;
@@ -37,17 +37,17 @@ export const getters: DefineGetters<Getters, State> = {
 
 export const actions: DefineActions<Actions, State, Mutations, Getters> = {
 
-  async getPredmetList({commit}) {
+  async getSubjectList({commit}) {
     const response = await PredmetService.getAll();
-    commit('setPredmetList', response);
+    commit('setSubjectList', response);
   },
 
 };
 
 export const mutations: DefineMutations<Mutations, State> = {
 
-  setPredmetList(state: State, predmetList: Predmet[]) {
-    state.predmetList = predmetList;
+  setSubjectList(state: State, subjectList: Predmet[]) {
+    state.subjectList = subjectList;
   },
 
 };
@@ -57,7 +57,7 @@ export const {
   mapGetters,
   mapMutations,
   mapActions,
-} = createNamespacedHelpers<State, Getters, Mutations, Actions>('products');
+} = createNamespacedHelpers<State, Getters, Mutations, Actions>('subjects');
 
 
 export const products = {

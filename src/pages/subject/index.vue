@@ -5,7 +5,7 @@
     />
     <v-card>
       <v-card-text>
-        <PredmetTable/>
+        <SubjectTable/>
       </v-card-text>
     </v-card>
   </div>
@@ -13,23 +13,23 @@
 
 <script>
   import PageTitle from '~/components/partials/PageTitle'
-  import PredmetTable from '~/components/predmet/PredmetTable'
+  import SubjectTable from '~/components/subject/SubjectTable'
 
   /**
-   * Přehled produktů využívající komponentu PredmetTable
-   * @name Predmet
-   * @module pages/predmet/index
+   * Přehled produktů využívající komponentu SubjectTable
+   * @name Subject
+   * @module pages/subject/index
    * @vue-computed {String} heading - Text nadpisu
    * @vue-computed {String} subheading - Text podnadpisu
    * @vue-data {String} icon - CSS třídy ikony
    */
   export default {
-    name: 'Predmet',
+    name: 'Subject',
     layout: 'default_vt',    
-    components: { PageTitle, PredmetTable },
+    components: { PageTitle, SubjectTable },
     computed: {
-      heading() { return this.$t('menu.predmet') },
-      subheading() { return this.$t('predmetList.subtitle') }
+      heading() { return this.$t('menu.subjects') },
+      subheading() { return this.$t('subjectList.subtitle') }
     },
     data() {
       return {

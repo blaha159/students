@@ -99,7 +99,7 @@ export class PredmetService {
   /**
    *
    */
-  static predmet(
+  static getOne(
     params: {
       /**  */
       id: number;
@@ -107,7 +107,7 @@ export class PredmetService {
     options: IRequestOptions = {}
   ): Promise<any> {
     return new Promise((resolve, reject) => {
-      let url = basePath + '/api/Predmet/predmet/{id}';
+      let url = basePath + '/api/Predmet/GetOne/{id}';
       url = url.replace('{id}', params['id'] + '');
 
       const configs: IRequestConfig = getConfigs('get', 'application/json', url, options);
@@ -121,18 +121,36 @@ export class PredmetService {
   /**
    *
    */
-  static predmet1(
+  static predmet(
     params: {
-      /**  */
-      id: number;
       /** requestBody */
       body?: Predmet;
     } = {} as any,
     options: IRequestOptions = {}
   ): Promise<any> {
     return new Promise((resolve, reject) => {
-      let url = basePath + '/api/Predmet/predmet/{id}';
-      url = url.replace('{id}', params['id'] + '');
+      let url = basePath + '/api/Predmet/Predmet';
+
+      const configs: IRequestConfig = getConfigs('post', 'application/json', url, options);
+
+      let data = params.body;
+
+      configs.data = data;
+      axios(configs, resolve, reject);
+    });
+  }
+  /**
+   *
+   */
+  static putOne(
+    params: {
+      /** requestBody */
+      body?: Predmet;
+    } = {} as any,
+    options: IRequestOptions = {}
+  ): Promise<any> {
+    return new Promise((resolve, reject) => {
+      let url = basePath + '/api/Predmet/PutOne';
 
       const configs: IRequestConfig = getConfigs('put', 'application/json', url, options);
 
@@ -145,7 +163,7 @@ export class PredmetService {
   /**
    *
    */
-  static predmet2(
+  static deleteOne(
     params: {
       /**  */
       id: number;
@@ -153,7 +171,7 @@ export class PredmetService {
     options: IRequestOptions = {}
   ): Promise<any> {
     return new Promise((resolve, reject) => {
-      let url = basePath + '/api/Predmet/predmet/{id}';
+      let url = basePath + '/api/Predmet/DeleteOne/{id}';
       url = url.replace('{id}', params['id'] + '');
 
       const configs: IRequestConfig = getConfigs('delete', 'application/json', url, options);
@@ -167,30 +185,9 @@ export class PredmetService {
   /**
    *
    */
-  static predmet3(
-    params: {
-      /** requestBody */
-      body?: Predmet;
-    } = {} as any,
-    options: IRequestOptions = {}
-  ): Promise<any> {
+  static deleteAll(options: IRequestOptions = {}): Promise<any> {
     return new Promise((resolve, reject) => {
-      let url = basePath + '/api/Predmet/predmet';
-
-      const configs: IRequestConfig = getConfigs('post', 'application/json', url, options);
-
-      let data = params.body;
-
-      configs.data = data;
-      axios(configs, resolve, reject);
-    });
-  }
-  /**
-   *
-   */
-  static predmet4(options: IRequestOptions = {}): Promise<any> {
-    return new Promise((resolve, reject) => {
-      let url = basePath + '/api/Predmet/predmet';
+      let url = basePath + '/api/Predmet/DeleteAll';
 
       const configs: IRequestConfig = getConfigs('delete', 'application/json', url, options);
 

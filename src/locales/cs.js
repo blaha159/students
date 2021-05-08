@@ -24,6 +24,7 @@ export default (context) => {
         test: 'Test',
         weatherForecast: 'Předpověď počasí', 
         students: 'Studenti',    
+        subjects: 'Předměty',
       },   
       weatherForecastList: {
         date: "Datum",
@@ -32,6 +33,10 @@ export default (context) => {
         summary: "Shrnutí",
         subtitle: 'Předpověď na 5 dnů',
       },   
+      subjectList: {
+        name: "Název",
+        subtitle: 'Seznam předmětů',
+      },
     })
   });
 }
